@@ -1,16 +1,29 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WordCloudManager : MonoBehaviour
 {
     [SerializeField] private RectTransform wordCloudArea;
     [SerializeField] private WordView wordPrefab;
+    [SerializeField] private TMP_InputField inputField;
 
     private readonly List<WordData> words = new();
 
     private void Start()
     {
         Init();
+    }
+
+    private void OnEnable()
+    {
+        inputField.onSubmit.AddListener(_ => AddWord());
+    }
+
+    private void OnDisable()
+    {
+        inputField.onSubmit.RemoveAllListeners();
     }
 
     [ContextMenu(nameof(Init))]
@@ -23,9 +36,54 @@ public class WordCloudManager : MonoBehaviour
         RebuildCloud();
     }
 
+    public void AddWord()
+    {
+        string word = inputField.text.Trim();
+
+        if (string.IsNullOrEmpty(word))
+            return;
+
+        WordData existingWord = words.Find(
+            wordData => string.Equals(
+                wordData.Word,
+                word,
+                System.StringComparison.OrdinalIgnoreCase
+            )
+        );
+
+        if (existingWord != null)
+        {
+            existingWord.Importance++;
+        }
+        else
+        {
+            words.Add(new WordData(word, 1));
+        }
+
+        inputField.text = string.Empty;
+
+        RebuildCloud();
+    }
+
     private void RebuildCloud()
     {
+        //ClearCloud();
+
+        //List<WordData> sortedWords = new(words);
+
+        //sortedWords.Sort((a, b) => b.Importance.CompareTo(a.Importance));
+
+        //foreach (WordData word in sortedWords)
+        //{
+        //    CreateWord(word);
+        //}
+        StartCoroutine(RebuildCloud_Routine());
+    }
+
+    private IEnumerator RebuildCloud_Routine()
+    {
         ClearCloud();
+        yield return null;
 
         List<WordData> sortedWords = new(words);
 
@@ -66,7 +124,7 @@ public class WordCloudManager : MonoBehaviour
 
     private bool TryFindPosition(WordView word, out Vector2 position)
     {
-        const float radiusStep = 200f;
+        const float radiusStep = 20f;
         const float angleStep = 30f;
 
         float maxRadius = GetMaxSearchRadius(word);
