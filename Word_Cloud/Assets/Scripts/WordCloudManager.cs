@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WordCloudManager : MonoBehaviour
 {
     [SerializeField] private RectTransform wordCloudArea;
     [SerializeField] private WordView wordPrefab;
+
+    private readonly List<WordData> words = new();
 
     private void Start()
     {
@@ -13,21 +16,43 @@ public class WordCloudManager : MonoBehaviour
     [ContextMenu(nameof(Init))]
     public void Init()
     {
-        foreach (Transform child in wordCloudArea.transform)
+        words.Add(new WordData("Cloud", 5));
+        words.Add(new WordData("Unity", 3));
+        words.Add(new WordData("Hello", 1));
+
+        RebuildCloud();
+    }
+
+    private void RebuildCloud()
+    {
+        ClearCloud();
+
+        List<WordData> sortedWords = new(words);
+
+        sortedWords.Sort((a, b) => b.Importance.CompareTo(a.Importance));
+
+        foreach (WordData word in sortedWords)
+        {
+            CreateWord(word);
+        }
+    }
+
+    private void ClearCloud()
+    {
+        foreach (Transform child in wordCloudArea)
         {
             Destroy(child.gameObject);
         }
-
-        CreateWord("Cloud", 5);
-        CreateWord("Unity", 3);
-        CreateWord("Hello", 1);
     }
 
-    private void CreateWord(string word, int importance)
+    private void CreateWord(WordData wordData)
     {
         WordView wordInstance = Instantiate(wordPrefab, wordCloudArea);
 
-        wordInstance.SetWord(word, importance);
+        wordInstance.SetWord(
+            wordData.Word,
+            wordData.Importance
+        );
 
         if (TryFindPosition(wordInstance, out Vector2 position))
         {
@@ -43,7 +68,8 @@ public class WordCloudManager : MonoBehaviour
     {
         const float radiusStep = 200f;
         const float angleStep = 30f;
-        const float maxRadius = 500f;
+
+        float maxRadius = GetMaxSearchRadius(word);
 
         for (float radius = 0f; radius <= maxRadius; radius += radiusStep)
         {
@@ -68,6 +94,17 @@ public class WordCloudManager : MonoBehaviour
 
         position = Vector2.zero;
         return false;
+    }
+
+    private float GetMaxSearchRadius(WordView word)
+    {
+        Vector2 cloudSize = wordCloudArea.rect.size;
+        Vector2 wordSize = word.RectTransform.rect.size;
+
+        float horizontalRadius = (cloudSize.x - wordSize.x) * 0.5f;
+        float verticalRadius = (cloudSize.y - wordSize.y) * 0.5f;
+
+        return Mathf.Max(0f, Mathf.Min(horizontalRadius, verticalRadius));
     }
 
     private bool IsPositionValid(WordView word, Vector2 position)
