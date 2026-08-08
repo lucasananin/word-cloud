@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class WordCloudManager : MonoBehaviour
     [Space]
     [SerializeField] float radiusStep = 20f;
     [SerializeField] float angleStep = 30f;
+    [Space]
+    [SerializeField] private float minFontSize = 24f;
+    [SerializeField] private float maxFontSize = 72f;
 
     private readonly List<WordData> words = new();
 
@@ -101,9 +105,11 @@ public class WordCloudManager : MonoBehaviour
     {
         WordView wordInstance = Instantiate(wordPrefab, wordCloudArea);
 
+        float fontSize = GetFontSize(wordData);
+
         wordInstance.SetWord(
             wordData.Word,
-            wordData.Importance
+            fontSize
         );
 
         if (TryFindPosition(wordInstance, out Vector2 position))
@@ -208,5 +214,26 @@ public class WordCloudManager : MonoBehaviour
 
         return cloudRect.Contains(wordRect.min)
             && cloudRect.Contains(wordRect.max);
+    }
+
+    private float GetFontSize(WordData word)
+    {
+        int minImportance = words.Min(wordData => wordData.Importance);
+        int maxImportance = words.Max(wordData => wordData.Importance);
+
+        if (minImportance == maxImportance)
+            return minFontSize;
+
+        float normalizedImportance = Mathf.InverseLerp(
+            minImportance,
+            maxImportance,
+            word.Importance
+        );
+
+        return Mathf.Lerp(
+            minFontSize,
+            maxFontSize,
+            normalizedImportance
+        );
     }
 }

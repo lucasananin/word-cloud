@@ -7,17 +7,12 @@ public class WordView : MonoBehaviour
 
     public RectTransform RectTransform => transform as RectTransform;
 
-    public void SetWord(string word, int importance)
+    public void SetWord(string word, float fontSize)
     {
         text.text = word;
+        text.fontSize = fontSize;
 
-        UpdateSize(importance);
         UpdateRectSize();
-    }
-
-    private void UpdateSize(int importance)
-    {
-        text.fontSize = 20f + importance * 5f;
     }
 
     private void UpdateRectSize()

@@ -336,6 +336,10 @@ MonoBehaviour:
   wordCloudArea: {fileID: 59177360}
   wordPrefab: {fileID: -5719190569688608343, guid: da3349349045cb7478631ad58e773bc2, type: 3}
   inputField: {fileID: 662053388}
+  radiusStep: 20
+  angleStep: 30
+  minFontSize: 24
+  maxFontSize: 144
 --- !u!1 &68723772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2664,10 @@ MonoBehaviour:
   wordCloudArea: {fileID: 59177360}
   wordPrefab: {fileID: -5719190569688608343, guid: da3349349045cb7478631ad58e773bc2, type: 3}
   inputField: {fileID: 0}
+  radiusStep: 20
+  angleStep: 30
+  minFontSize: 24
+  maxFontSize: 72
 --- !u!4 &1167297557
 Transform:
   m_ObjectHideFlags: 0
