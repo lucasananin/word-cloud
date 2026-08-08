@@ -8,6 +8,9 @@ public class WordCloudManager : MonoBehaviour
     [SerializeField] private RectTransform wordCloudArea;
     [SerializeField] private WordView wordPrefab;
     [SerializeField] private TMP_InputField inputField;
+    [Space]
+    [SerializeField] float radiusStep = 20f;
+    [SerializeField] float angleStep = 30f;
 
     private readonly List<WordData> words = new();
 
@@ -18,27 +21,28 @@ public class WordCloudManager : MonoBehaviour
 
     private void OnEnable()
     {
-        inputField.onSubmit.AddListener(_ => AddWord());
+        inputField.onSubmit.AddListener(AddWord);
     }
 
     private void OnDisable()
     {
-        inputField.onSubmit.RemoveAllListeners();
+        inputField.onSubmit.RemoveListener(AddWord);
     }
 
     [ContextMenu(nameof(Init))]
     public void Init()
     {
-        words.Add(new WordData("Cloud", 5));
-        words.Add(new WordData("Unity", 3));
-        words.Add(new WordData("Hello", 1));
+        words.Add(new WordData("Cachorro", 5));
+        words.Add(new WordData("Gato", 3));
+        words.Add(new WordData("Papagaio", 1));
 
         RebuildCloud();
     }
 
-    public void AddWord()
+    public void AddWord(string word)
     {
-        string word = inputField.text.Trim();
+        //string word = inputField.text.Trim();
+        word.Trim();
 
         if (string.IsNullOrEmpty(word))
             return;
@@ -67,16 +71,6 @@ public class WordCloudManager : MonoBehaviour
 
     private void RebuildCloud()
     {
-        //ClearCloud();
-
-        //List<WordData> sortedWords = new(words);
-
-        //sortedWords.Sort((a, b) => b.Importance.CompareTo(a.Importance));
-
-        //foreach (WordData word in sortedWords)
-        //{
-        //    CreateWord(word);
-        //}
         StartCoroutine(RebuildCloud_Routine());
     }
 
@@ -124,18 +118,19 @@ public class WordCloudManager : MonoBehaviour
 
     private bool TryFindPosition(WordView word, out Vector2 position)
     {
-        const float radiusStep = 20f;
-        const float angleStep = 30f;
+        //const float radiusStep = 20f;
+        //const float angleStep = 30f;
 
         float maxRadius = GetMaxSearchRadius(word);
 
         for (float radius = 0f; radius <= maxRadius; radius += radiusStep)
         {
-            float startAngle = Random.Range(0f, 360f);
+            //float startAngle = Random.Range(0f, 360f);
 
             for (float angle = 0f; angle < 360f; angle += angleStep)
             {
-                float radians = (startAngle + angle) * Mathf.Deg2Rad;
+                //float radians = (startAngle + angle) * Mathf.Deg2Rad;
+                float radians = angle * Mathf.Deg2Rad;
 
                 Vector2 candidate = new Vector2(
                     Mathf.Cos(radians) * radius,
