@@ -20,7 +20,7 @@ public class WordCloudManager : MonoBehaviour
 
     private void Start()
     {
-        Init();
+        //Init();
     }
 
     private void OnEnable()

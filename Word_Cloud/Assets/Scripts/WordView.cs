@@ -11,6 +11,7 @@ public class WordView : MonoBehaviour
     {
         text.text = word;
         text.fontSize = fontSize;
+        //text.color = Random.ColorHSV();
 
         UpdateRectSize();
     }
