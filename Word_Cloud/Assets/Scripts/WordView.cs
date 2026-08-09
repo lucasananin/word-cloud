@@ -7,10 +7,11 @@ public class WordView : MonoBehaviour
 
     public RectTransform RectTransform => transform as RectTransform;
 
-    public void SetWord(string word, float fontSize)
+    public void SetWord(string word, float fontSize, Color _color = default)
     {
         text.text = word;
         text.fontSize = fontSize;
+        text.color = _color;
         //text.color = Random.ColorHSV();
 
         UpdateRectSize();

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class WordButton : MonoBehaviour
 {
+    [SerializeField] GameDataSO _so = null;
     [SerializeField] string _word = null;
 
     private WordCloudManager _manager = null;
@@ -20,6 +21,7 @@ public class WordButton : MonoBehaviour
     private void Start()
     {
         _text.text = _word;
+        AddMyWord();
     }
 
     private void OnEnable()
@@ -34,6 +36,10 @@ public class WordButton : MonoBehaviour
 
     public void AddMyWord()
     {
-        _manager.AddWord(_word);
+        if (_so != null)
+            _so.AddWord(_word);
+
+        if (_manager != null)
+            _manager.AddWord(_word);
     }
 }

@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7354f5f3e5e2db41950a8c65d74877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordButton
+  _so: {fileID: 11400000, guid: 50d9ee13098c4f847bf1731bbd3c9eda, type: 2}
   _word: Gato
 --- !u!114 &12521401
 MonoBehaviour:
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -608,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7354f5f3e5e2db41950a8c65d74877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordButton
+  _so: {fileID: 11400000, guid: 50d9ee13098c4f847bf1731bbd3c9eda, type: 2}
   _word: Cobra
 --- !u!114 &281420989
 MonoBehaviour:
@@ -632,7 +634,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -743,6 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7354f5f3e5e2db41950a8c65d74877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordButton
+  _so: {fileID: 11400000, guid: 50d9ee13098c4f847bf1731bbd3c9eda, type: 2}
   _word: Mucura
 --- !u!114 &313998107
 MonoBehaviour:
@@ -767,7 +770,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2105,6 +2108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7354f5f3e5e2db41950a8c65d74877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordButton
+  _so: {fileID: 11400000, guid: 50d9ee13098c4f847bf1731bbd3c9eda, type: 2}
   _word: Papagaio
 --- !u!114 &690840037
 MonoBehaviour:
@@ -2129,7 +2133,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2409,7 +2413,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2480,6 +2484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7354f5f3e5e2db41950a8c65d74877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordButton
+  _so: {fileID: 11400000, guid: 50d9ee13098c4f847bf1731bbd3c9eda, type: 2}
   _word: Cachorro
 --- !u!1 &903650522
 GameObject:
@@ -3402,7 +3407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7354f5f3e5e2db41950a8c65d74877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordButton
-  _word: Melocoton
+  _so: {fileID: 11400000, guid: 50d9ee13098c4f847bf1731bbd3c9eda, type: 2}
+  _word: Coelho
 --- !u!114 &1725932585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3426,7 +3432,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3537,6 +3543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7354f5f3e5e2db41950a8c65d74877e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WordButton
+  _so: {fileID: 11400000, guid: 50d9ee13098c4f847bf1731bbd3c9eda, type: 2}
   _word: Jabuti
 --- !u!114 &1830636538
 MonoBehaviour:
@@ -3561,7 +3568,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
